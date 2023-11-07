@@ -17,7 +17,7 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Sate: <code>const i = 0</code>
+            State: <code>const i = 0</code>
           </p>
           <button>Click me!</button>
         </header>
