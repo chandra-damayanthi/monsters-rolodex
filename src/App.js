@@ -12,14 +12,17 @@ class App extends Component {
     }
   }
   render() {
+    const { count } = this.state
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            State: <code>const i = 0</code>
+            State: <code>const i = {count}</code>
           </p>
-          <button>Click me!</button>
+          <button onClick={()=> {
+              this.setState({ count: count + 1 })
+          }}>Click me!</button>
         </header>
       </div>
     );
