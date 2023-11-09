@@ -33,8 +33,7 @@ class App extends Component {
             const { value } = e.target;
             
             this.setState(({ monsters })=> { 
-  
-              const matchedMonsters = monsters.filter(({name: monsterName}) =>  monsterName.includes(value))
+              const matchedMonsters = monsters.filter(({name: monsterName}) =>  monsterName.toLowerCase().includes(value.toLowerCase()))
 
               return { monsters: matchedMonsters }
              })
