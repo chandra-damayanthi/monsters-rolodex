@@ -7,7 +7,8 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      monsters: [] // Initial state of monsters property 
+      monsters: [], // Initial state of monsters property 
+      searchValue: "" 
     }
   }
   // Once the component's rendered on the DOM initially 
@@ -24,22 +25,23 @@ class App extends Component {
   }
 
   render() {
+    const { monsters, searchValue } = this.state
+    const matchedMonsters = monsters.filter(({name: monsterName}) =>  monsterName.toLowerCase().includes(searchValue.toLowerCase()))
+
     return (
       <div className="App">
         <input type="search" 
           placeholder="Search your moster" 
           className="search-box"
           onChange={(e)=> {
-            const { value } = e.target;
+            const { value: searchValue } = e.target;
             
-            this.setState(({ monsters })=> { 
-              const matchedMonsters = monsters.filter(({name: monsterName}) =>  monsterName.toLowerCase().includes(value.toLowerCase()))
-
-              return { monsters: matchedMonsters }
+            this.setState(()=> { 
+              return { searchValue }
              })
           }}
         />
-        {this.state.monsters.map(({ id: monsterId, name: monsterName }) => (<h1 key={ monsterId }>{ monsterName }</h1>))}
+        {matchedMonsters.map(({ id: monsterId, name: monsterName }) => (<h1 key={ monsterId }>{ monsterName }</h1>))}
       </div>
     );
   }
