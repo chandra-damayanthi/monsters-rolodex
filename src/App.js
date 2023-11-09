@@ -26,6 +26,20 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <input type="search" 
+          placeholder="Search your moster" 
+          className="search-box"
+          onChange={(e)=> {
+            const { value } = e.target;
+            
+            this.setState(({ monsters })=> { 
+  
+              const meatchedMonsters = monsters.filter(({name: monsterName}) =>  monsterName.includes(value))
+
+              return { monsters: meatchedMonsters }
+             })
+          }}
+        />
         {this.state.monsters.map(({ id: monsterId, name: monsterName }) => (<h1 key={ monsterId }>{ monsterName }</h1>))}
       </div>
     );
