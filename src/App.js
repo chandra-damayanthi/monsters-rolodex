@@ -26,7 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        
+        {this.state.monsters.map(({ id: monsterId, name: monsterName }) => (<h1 key={ monsterId }>{ monsterName }</h1>))}
       </div>
     );
   }
