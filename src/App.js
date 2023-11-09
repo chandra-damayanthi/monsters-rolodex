@@ -8,7 +8,8 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      count: 0
+      count: 0,
+      color: "white"
     }
   }
   render() {
@@ -17,11 +18,12 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
+          <p style={{color: this.state.color}}>
             State: <code>const i = {count}</code>
           </p>
           <button onClick={()=> {
-              this.setState({ count: count + 1 })
+              this.setState({ count: count + 1, color: 'blue' })
+              setTimeout(()=> this.setState({color: 'white'}), 200)
           }}>Click me!</button>
         </header>
       </div>
