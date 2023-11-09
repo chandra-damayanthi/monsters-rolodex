@@ -34,9 +34,9 @@ class App extends Component {
             
             this.setState(({ monsters })=> { 
   
-              const meatchedMonsters = monsters.filter(({name: monsterName}) =>  monsterName.includes(value))
+              const matchedMonsters = monsters.filter(({name: monsterName}) =>  monsterName.includes(value))
 
-              return { monsters: meatchedMonsters }
+              return { monsters: matchedMonsters }
              })
           }}
         />
