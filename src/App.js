@@ -24,6 +24,14 @@ class App extends Component {
       }) 
   }
 
+  searchHandler = (e) => {
+    const { value: searchValue } = e.target;
+            
+    this.setState(()=> { 
+      return { searchValue }
+     })
+  }
+
   render() {
     const { monsters, searchValue } = this.state
     const matchedMonsters = monsters.filter(({name: monsterName}) =>  monsterName.toLowerCase().includes(searchValue.toLowerCase()))
@@ -33,13 +41,7 @@ class App extends Component {
         <input type="search" 
           placeholder="Search your moster" 
           className="search-box"
-          onChange={(e)=> {
-            const { value: searchValue } = e.target;
-            
-            this.setState(()=> { 
-              return { searchValue }
-             })
-          }}
+          onChange={this.searchHandler}
         />
         {matchedMonsters.map(({ id: monsterId, name: monsterName }) => (<h1 key={ monsterId }>{ monsterName }</h1>))}
       </div>
