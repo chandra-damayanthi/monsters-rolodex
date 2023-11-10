@@ -5,9 +5,9 @@ import './monster-card.styles.css'
 
 class MonsterCard extends Component {
     render() {
-        const { id, name, email  } = this.props
+        const { name, email  } = this.props
         return (
-            <div className="card-container" key={ id }>
+            <div className="card-container">
                 <img src={`https://robohash.org/${name}?set=set2&size=180x180`} alt={`moster ${name}`}/>
                 <h2>{ name }</h2>
                 <p>{email}</p>          
